@@ -6,8 +6,13 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFF4F7FB),
       appBar: AppBar(
+        backgroundColor: const Color.fromARGB(255, 6, 50, 100),
+        foregroundColor: Colors.white,
+
         title: const Text('PayLite'),
+
         actions: [
           IconButton(
             onPressed: () {},
@@ -30,18 +35,6 @@ class HomeScreen extends StatelessWidget {
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
               ),
-                // child: Text(
-                //   'Manage your payments easily',
-                //   style: TextStyle(fontSize: 15),
-                // ),
-              // ),
-
-              // const SizedBox(height: 5),
-
-              // const Text(
-              //   'Manage your payments easily',
-              //   style: TextStyle(fontSize: 15),
-              // ),
 
               const SizedBox(height: 20),
 
@@ -51,13 +44,17 @@ class HomeScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(20),
 
                 decoration: BoxDecoration(
+                  color: const Color.fromARGB(255, 163, 89, 19),
                   borderRadius: BorderRadius.circular(20),
                 ),
 
                 child: const Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Available Balance', style: TextStyle(fontSize: 16)),
+                    Text(
+                      'Available Balance',
+                      style: TextStyle(fontSize: 16, color: Colors.white70),
+                    ),
 
                     SizedBox(height: 10),
 
@@ -66,6 +63,7 @@ class HomeScreen extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 32,
                         fontWeight: FontWeight.bold,
+                        color: Colors.white,
                       ),
                     ),
                   ],
@@ -200,16 +198,23 @@ class HomeScreen extends StatelessWidget {
     required String amount,
     required IconData icon,
   }) {
-    return ListTile(
-      contentPadding: EdgeInsets.zero,
+    return Container(
+      margin: const EdgeInsets.only(bottom: 10),
 
-      leading: CircleAvatar(child: Icon(icon)),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(15),
+      ),
 
-      title: Text(name),
+      child: ListTile(
+        leading: CircleAvatar(child: Icon(icon)),
 
-      trailing: Text(
-        amount,
-        style: const TextStyle(fontWeight: FontWeight.bold),
+        title: Text(name),
+
+        trailing: Text(
+          amount,
+          style: const TextStyle(fontWeight: FontWeight.bold),
+        ),
       ),
     );
   }
